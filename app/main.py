@@ -6,15 +6,20 @@ app = FastAPI()
 # @app.get("/")
 # def read_root():
 #     return {"Hello": "World"}
-
+nick = None
 
 @app.get("/callname/{name}")
 def read_name(name: str = None):
+    global nick
+    nick = name
     return {"hello": name}
-
+  
+    
 @app.post("/callname")
-def create_name():
-    return {"hello": "Saran_yeen"}
+def post_name():
+    return {"hello": nick}
+
+    
 
 
 # create_name("Saran_yeen")
