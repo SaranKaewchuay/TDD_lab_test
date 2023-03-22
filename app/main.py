@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/callname/{name}")
 def read_name(name: str = None):
-    return {"hello": {name}}
+    return {"hello": name}
 
 # @app.post("/callname")
 # def read_name(name: str = None):

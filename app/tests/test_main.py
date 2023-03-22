@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 def test_read_main():
-    response = client.get("/saran")
+    response = client.get("/callname/saran")
     assert response.status_code == 200
     assert response.json() == {"hello": "saran"}
     
