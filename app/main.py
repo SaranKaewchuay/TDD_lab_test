@@ -8,7 +8,7 @@ Name = None
 @app.get("/callname/{name}")
 def read_name(name: str = None):
     global Name
-    Name= name
+    Name = name
     return {"hello": name}
   
     

@@ -4,16 +4,15 @@ from app.main import app
 
 client = TestClient(app)
 
-Name = None
+responseName = None
 
 def test_call_name():
-    response = client.get("/callname/Saran Kaewchuay")
-    global Name
-    Name = "Saran Kaewchuay"
-    assert response.status_code == 200
-    assert response.json() == {"hello": "Saran Kaewchuay"}
+    global responseName
+    responseName = client.get("/callname/Saran Kaewchuay")
+    assert responseName.status_code == 200
+    assert responseName.json() == {"hello": "Saran Kaewchuay"}
     
 def test_post_name():
     response = client.post("/callname")
     assert response.status_code == 200
-    assert response.json() == {"hello": Name}
+    assert response.json() == responseName.json()
